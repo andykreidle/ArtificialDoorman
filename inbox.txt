@@ -1,0 +1,12 @@
+[?1049h[1;24r(B[m[4l[?7h[39;49m[?1h=[39;49m[37m[40m[H[2J[24d[39;49m[K[24;1H[?1049l
+[?1l>[39;49m[K[24;1H[?1049l
+[?1l>[?1049h[1;24r[39;49m(B[m[4l[?7h[39;49m[37m[40m[37m[40m[H[2J[24dReading imaps://imap.gmail.com:993/INBOX...(B[m[39;49m[37m[40m
+[37m[40mLooking up imap.gmail.com...[K(B[m[39;49m[37m[40m
+[37m[40mConnecting to imap.gmail.com...(B[m[39;49m[37m[40m
+[37m[40mSSL/TLS connection using TLS1.2 (RSA/AES-128-CBC/SHA256)(B[m[39;49m[37m[40m
+[37m[40mAuthenticating (PLAIN)...[K(B[m[39;49m[37m[40m
+[37m[40mSelecting INBOX...[K(B[m[39;49m[37m[40m[?25l
+[37m[40m[J[H(B[0;1m[32m[44mq:Quit    u:Undel  s:Save  m:Mail  r:Reply    ?:Help[K
+[23d---Mutt: =INBOX [Msgs:0]---(threads/reverse-last-date-received)---------(all)---[2;80H(B[m[39;49m[37m[40m[?1h=[?12l[?25h[39;49m
+[24d[K[24;1H[?1049l
+[?1l>Caught signal 1...  Exiting.
