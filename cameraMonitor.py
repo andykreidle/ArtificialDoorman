@@ -1,26 +1,33 @@
-#!/bin/bash
-import os, sys, time, datetime, picamera
 import RPi.GPIO as GPIO
+import os, picamera, sys, time
+import subprocess
 
-def PIR_detection(sensor):
-    if (GPIO.input(sensor) == True):
-        return True
-    else:
-        return False
+GPIO.setmode(GPIO.BCM)
+#plug passive infrared into GPIO pin 19
+PIR_PIN = 19
+GPIO.setup(PIR_PIN, GPIO.IN)
+
+#initialize camera
+camera = picamera.PiCamera()
+camera.hflip = True
+camera.vflip = True
+
+#can be used for time stamps but pictures will be saved to email
+def generate_file_name():
+	return time.strftime("%Y-%m-%d-%H-%M-%S-%Z", time.localtime())
     
-def main():
-    pir_sensor = 17
-    # gpio pin on rpi set to input
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(pir_sensor, GPIO.IN)
-    while True:
-        time.sleep(0.1)
-        if PIR_detection(pir_sensor) == False:
-            print("snap")
-            #os.system("""raspistill -o /home/pi/doorman/picture.jpg""")
-            #os.system("""sudo mutt -s \"test\" PHONENUMBER@txt.att.net < nada.txt""")
-            #os.system("""./arrivalNote.sh""")
-            time.sleep(1)
+def snap_photo(file_name):
+	camera.resolution = (1024, 768)	
+	camera.capture(file_name)
+	print "rpi-ms-camera: Photo taken."
+	
 
-            
-main()
+#wait for rising edge of GPIO
+GPIO.wait_for_edge(PIR_PIN, GPIO.RISING)
+print ("Motion Detected!")
+#fname = LOCAL_DIRECTORY + generate_file_name()
+#fname = fname + ".jpg"
+snap_photo(guest.jpg)
+camera.close()
+GPIO.cleanup()
+sys.exit()
